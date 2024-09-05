@@ -17,6 +17,7 @@ public class User {
 
     @JoinColumn
     @ManyToMany
+    @OrderBy("id ASC")
     private List<ServiceProvider> serviceProviderList;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
