@@ -41,7 +41,7 @@ public class AdminServiceImpl implements AdminService {
         ServiceProvider currSProvider = serviceProviderRepository1.findByName(providerName);
 
         currAdmin.getServiceProviders().add(currSProvider);
-        currSProvider.setAdmin(currAdmin);
+        //currSProvider.setAdmin(currAdmin);
 
         serviceProviderRepository1.save(currSProvider);
         return adminRepository1.save(currAdmin);
