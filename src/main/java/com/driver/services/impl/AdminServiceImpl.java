@@ -55,7 +55,7 @@ public class AdminServiceImpl implements AdminService {
         try{
             countryEnum = CountryName.valueOf(countryName.toUpperCase());
         }catch(Exception e){
-            throw new CountryNotFoundException("No country exixt with given code");
+            throw new CountryNotFoundException("Country not found");
         }
 
         Country newCountry = new Country();
@@ -67,7 +67,7 @@ public class AdminServiceImpl implements AdminService {
         newCountry.setServiceProvider(currSProvider);
         currSProvider.getCountryList().add((newCountry));
 
-        countryRepository1.save(newCountry);
+        //countryRepository1.save(newCountry);
         return  serviceProviderRepository1.save(currSProvider);
     }
 

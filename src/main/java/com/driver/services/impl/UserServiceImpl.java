@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
         try{
             countryEnum = CountryName.valueOf(countryName.toUpperCase());
         }catch(Exception e){
-            throw new CountryNotFoundException("No country exixt with given code");
+            throw new CountryNotFoundException("Country not found");
         }
 
         Country newCountry = new Country();
@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
         newCountry.setUser(newUser);
 
         userRepository3.save(newUser);
-        countryRepository3.save(newCountry);
+        //countryRepository3.save(newCountry);
 
         newUser.setOriginalIp(newUser.getOriginalCountry().getCode() + "." + newUser.getId());
         return userRepository3.save(newUser);

@@ -28,7 +28,7 @@ public class ConnectionServiceImpl implements ConnectionService {
         User user = userRepository2.findById(userId).get();
 
         if(user.getConnected() == true)
-            throw new AlreadyConnectedException("You are already connected");
+            throw new AlreadyConnectedException("Already connected");
 
         if(countryName == user.getOriginalCountry().toString())
             return user;
@@ -51,13 +51,13 @@ public class ConnectionServiceImpl implements ConnectionService {
                 }
             }
         }
-        throw new UnableToConnectException("Sorry no service providers subscribed by you for the requested country");
+        throw new UnableToConnectException("Unable to connect");
     }
     @Override
     public User disconnect(int userId) throws Exception {
         User user = userRepository2.findById(userId).get();
         if(user.getConnected()==false)
-            throw new AlreadyDisconnectedException("You are disconnected already");
+            throw new AlreadyDisconnectedException("Already disconnected");
 
         Connection connection = user.getConnectionList().get(user.getConnectionList().size()-1);
         user.getConnectionList().remove(user.getConnectionList().size()-1);
@@ -91,6 +91,6 @@ public class ConnectionServiceImpl implements ConnectionService {
             }
         }
 
-        throw  new CannotEstablishCommunicationException("Sorry, unfortunately communication cannot be established");
+        throw  new CannotEstablishCommunicationException("Cannot establish communication");
     }
 }
