@@ -30,13 +30,13 @@ public class ConnectionServiceImpl implements ConnectionService {
         if(user.getConnected() == true)
             throw new AlreadyConnectedException("Already connected");
 
-        if(countryName.equals(user.getOriginalCountry().toString()))
+        if(countryName.equals(user.getOriginalCountry().getCountryName().toString()))
             return user;
 
         List<ServiceProvider> serviceProviderList = user.getServiceProviderList();
         for(ServiceProvider serviceProvider : serviceProviderList){
             for(Country country: serviceProvider.getCountryList()){
-                if(country.getCountryName().toString().equals(countryName)){
+                if((country.getCountryName().toString()).equals(countryName)){
                     Connection connection = new Connection();
                     connection.setServiceProvider(serviceProvider);
                     connection.setUser(user);
