@@ -30,13 +30,13 @@ public class ConnectionServiceImpl implements ConnectionService {
         if(user.getConnected() == true)
             throw new AlreadyConnectedException("Already connected");
 
-        if(countryName == user.getOriginalCountry().toString())
+        if(countryName.equals(user.getOriginalCountry().toString()))
             return user;
 
         List<ServiceProvider> serviceProviderList = user.getServiceProviderList();
         for(ServiceProvider serviceProvider : serviceProviderList){
             for(Country country: serviceProvider.getCountryList()){
-                if(country.getCountryName().toString() == countryName){
+                if(country.getCountryName().toString().equals(countryName)){
                     Connection connection = new Connection();
                     connection.setServiceProvider(serviceProvider);
                     connection.setUser(user);
@@ -82,12 +82,12 @@ public class ConnectionServiceImpl implements ConnectionService {
         else
             receiverCountry = receiver.getMaskedIp().substring(0,3);
 
-        if(receiverCountry == senderCountry)
+        if(receiverCountry.equals(senderCountry))
             return sender;
 
         for(ServiceProvider serviceProvider: sender.getServiceProviderList()){
             for(Country country:serviceProvider.getCountryList()){
-                if(country.getCode() == receiverCountry)
+                if(country.getCode().equals(receiverCountry))
                     return connect(sender.getId(), country.getCountryName().toString());
             }
         }
