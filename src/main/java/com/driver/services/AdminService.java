@@ -11,9 +11,9 @@ import org.springframework.stereotype.Service;
 @Service
 public interface AdminService {
 
-    abstract public Admin register(String username, String password);
+    public Admin register(String username, String password);
 
-    abstract public Admin addServiceProvider(int adminId, String providerName);
+    public Admin addServiceProvider(int adminId, String providerName);
 
-    abstract public ServiceProvider addCountry(int serviceProviderId, String countryName) throws Exception;
+    public ServiceProvider addCountry(int serviceProviderId, String countryName) throws Exception;
 }

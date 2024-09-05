@@ -46,5 +46,5 @@ public class Admin {
     public void setServiceProviders(List<ServiceProvider> serviceProviders) {
         this.serviceProviders = serviceProviders;
     }
-    
+
 }
