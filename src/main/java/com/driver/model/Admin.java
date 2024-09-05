@@ -46,4 +46,10 @@ public class Admin {
     public void setServiceProviders(List<ServiceProvider> serviceProviders) {
         this.serviceProviders = serviceProviders;
     }
+
+    public Admin(String username, String password)
+    {
+        this.username = username;
+        this.password = password;
+    }
 }
