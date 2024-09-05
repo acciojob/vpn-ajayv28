@@ -59,7 +59,7 @@ public class ConnectionServiceImpl implements ConnectionService {
         if(user.getConnected()==false)
             throw new AlreadyDisconnectedException("Already disconnected");
 
-        Connection connection = user.getConnectionList().get(user.getConnectionList().size()-1s);
+        Connection connection = user.getConnectionList().get(user.getConnectionList().size()-1);
         user.getConnectionList().remove(connection);
         user.setMaskedIp(null);
         user.setConnected(false);
