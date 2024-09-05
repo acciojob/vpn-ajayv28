@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
+@Service
 public interface ConnectionService {
 
     public abstract User connect(int userId, String countryName) throws Exception;

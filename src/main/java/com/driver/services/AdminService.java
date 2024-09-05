@@ -8,7 +8,7 @@ import com.driver.repository.ServiceProviderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+@Service
 public interface AdminService {
 
     abstract public Admin register(String username, String password);
